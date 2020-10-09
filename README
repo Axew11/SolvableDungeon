@@ -1,13 +1,5 @@
 Directions
 
-This project has two phases:
-1) inputting the layout of a dungeon
-2) a secret word that is used to solve the dungeon
-(5 points)
-
-THEN THE BONUS PHASE:
-3) USE BRIDGES TO VISUALIZE THE DUNGEON (5 points)
-
 Input Phase:
 The dungeon is made up of rooms. Each room has a letter engraved on the
 ground, a button to push, and two doors leading from it to the left
@@ -23,45 +15,40 @@ letter.
 
 Example input: BDCAF6
 This would create a dungeon that looks like this:
-      B
+      	  B
 	 / \
 	A   D
 	   / \
-      C	  F
+      	  C   F
 
 Solving Phase:
 The user will then type in a password, a string of characters. The end of input is
-designated by hitting ctrl-d, which sends the EOF character to the input. So
-you'll read one char at a time, and if you get an EOF (i.e. "if (x == EOF)" ) 
-you are done with the input.
+designated by hitting ctrl-d, which sends the EOF character to the input.
 
-First, you must check to see if the maze is solvable. For example, if the
+First, the program will check to see if the maze is solvable. For example, if the
 password for the dungeon above was "ABCDZZZ", this would not be solvable,
-since there is no room Z in the maze. If this is the case, print "NOT
-SOLVABLE\n" to the screen.
+since there is no room Z in the maze and would print "NOT SOLVABLE\n".
 
-If the maze is solvable, then you must print directions on how to solve the
-maze.
+If the maze is solvable, then the program will take the appropriate amount of steps
+to solve it.
 
 The player will start at the root of the tree.
 
-For each char that your read, you must print directions on how to solve the
-maze.
-If you ever reach the spot where that letter is found, print:
+If you the player reaches the spot where the letter is found, the program will print:
 "Found LETTER. Retrace your steps to the entrance.\n"
 (Where LETTER is the letter you were searching for.)
 
-If the room you are looking for is to the left, print:
+If the room the player is looking for is to the left, the program will print:
 "Take the left door at the LETTER.\n"
 and then recursively repeat the algorithm to the left.
 (LETTER is the letter on the ground in that room)
 
-If the room you are looking for is to the right, print:
+If the room the player is looking for is to the right, the program will print:
 "Take the right door at the LETTER.\n"
-and then recursively repeat the algorithm to the left.
+and then recursively repeat the algorithm to the right.
 
-After you have printed directions to all of the letters in the password,
-print:
+After all the directions have been printed to all of the letters in the password,
+the program will print:
 "Exit the dungeon!\n";
 
 And quit.
